@@ -1,0 +1,116 @@
+2021-01-14 16:26:48.649  INFO 5088 --- [main] c.q.uet.ExamSystemShoppingApplication    : Starting ExamSystemShoppingApplication using Java 1.8.0_241 on LAPTOP-ONLHTM8Q with PID 5088 (C:\Users\ADMIN\git\myLocalRepository\ExamSystemShopping\target\classes started by ADMIN in C:\Users\ADMIN\git\myLocalRepository\ExamSystemShopping)
+2021-01-14 16:26:48.654  INFO 5088 --- [main] c.q.uet.ExamSystemShoppingApplication    : No active profile set, falling back to default profiles: default
+2021-01-14 16:26:49.653  INFO 5088 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-01-14 16:26:49.654  INFO 5088 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-01-14 16:26:49.686  INFO 5088 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 0 JPA repository interfaces.
+2021-01-14 16:26:49.708  INFO 5088 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-01-14 16:26:49.709  INFO 5088 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-01-14 16:26:49.729  INFO 5088 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2021-01-14 16:26:50.368  INFO 5088 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-01-14 16:26:50.379  INFO 5088 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-14 16:26:50.380  INFO 5088 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-01-14 16:26:50.534  INFO 5088 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-14 16:26:50.535  INFO 5088 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1811 ms
+2021-01-14 16:26:50.716  INFO 5088 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-14 16:26:50.777  INFO 5088 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-14 16:26:50.881  INFO 5088 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.23.Final
+2021-01-14 16:26:51.238  INFO 5088 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-01-14 16:26:51.431  INFO 5088 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-01-14 16:26:51.604  INFO 5088 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-01-14 16:26:51.625  INFO 5088 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-01-14 16:26:52.091  WARN 5088 --- [task-1] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.quangnv.uet.entities.pk.ProductColorPK
+2021-01-14 16:26:52.092  WARN 5088 --- [task-1] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.quangnv.uet.entities.pk.ProductColorPK
+2021-01-14 16:26:52.495  WARN 5088 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8081 is already in use
+2021-01-14 16:26:52.518  INFO 5088 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-01-14 16:26:52.519  WARN 5088 --- [main] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'entityManagerFactory': javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Repeated column in mapping for entity: com.quangnv.uet.entities.orm.PhoneEntity column: foreign_key (should be mapped with insert="false" update="false")
+2021-01-14 16:26:52.520  INFO 5088 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-14 16:26:52.520  INFO 5088 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-01-14 16:26:52.529  INFO 5088 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-01-14 16:26:52.535  INFO 5088 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-01-14 16:26:52.549  INFO 5088 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-01-14 16:26:52.569 ERROR 5088 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+
+2021-01-14 16:26:55.098  INFO 11356 --- [RMI TCP Connection(6)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-01-14 16:26:55.413  INFO 11356 --- [RMI TCP Connection(6)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-01-14 16:26:55.414  WARN 11356 --- [RMI TCP Connection(6)-127.0.0.1] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'entityManagerFactory': javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Repeated column in mapping for entity: com.quangnv.uet.entities.orm.PhoneEntity column: foreign_key (should be mapped with insert="false" update="false")
+2021-01-14 16:26:55.416  INFO 11356 --- [RMI TCP Connection(6)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-14 16:26:55.416  INFO 11356 --- [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-01-14 16:26:55.425  INFO 11356 --- [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-01-14 16:27:01.329  INFO 2200 --- [main] c.q.uet.ExamSystemShoppingApplication    : Starting ExamSystemShoppingApplication using Java 1.8.0_241 on LAPTOP-ONLHTM8Q with PID 2200 (C:\Users\ADMIN\git\myLocalRepository\ExamSystemShopping\target\classes started by ADMIN in C:\Users\ADMIN\git\myLocalRepository\ExamSystemShopping)
+2021-01-14 16:27:01.333  INFO 2200 --- [main] c.q.uet.ExamSystemShoppingApplication    : No active profile set, falling back to default profiles: default
+2021-01-14 16:27:02.266  INFO 2200 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-01-14 16:27:02.267  INFO 2200 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-01-14 16:27:02.312  INFO 2200 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 0 JPA repository interfaces.
+2021-01-14 16:27:02.339  INFO 2200 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-01-14 16:27:02.341  INFO 2200 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-01-14 16:27:02.379  INFO 2200 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2021-01-14 16:27:03.082  INFO 2200 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-01-14 16:27:03.098  INFO 2200 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-14 16:27:03.099  INFO 2200 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-01-14 16:27:03.227  INFO 2200 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-14 16:27:03.228  INFO 2200 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1841 ms
+2021-01-14 16:27:03.479  INFO 2200 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-14 16:27:03.573  INFO 2200 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-14 16:27:03.671  INFO 2200 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.23.Final
+2021-01-14 16:27:03.958  INFO 2200 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-01-14 16:27:04.117  INFO 2200 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-01-14 16:27:04.336  INFO 2200 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-01-14 16:27:04.351  INFO 2200 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-01-14 16:27:04.742  WARN 2200 --- [task-1] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.quangnv.uet.entities.pk.ProductColorPK
+2021-01-14 16:27:04.742  WARN 2200 --- [task-1] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.quangnv.uet.entities.pk.ProductColorPK
+2021-01-14 16:27:05.050  INFO 2200 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2021-01-14 16:27:05.052  INFO 2200 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2021-01-14 16:27:05.054  INFO 2200 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2021-01-14 16:27:05.064  INFO 2200 --- [main] c.q.uet.ExamSystemShoppingApplication    : Started ExamSystemShoppingApplication in 4.182 seconds (JVM running for 5.157)
+2021-01-14 16:27:29.318  INFO 2200 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-14 16:27:29.318  INFO 2200 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-01-14 16:27:29.321  INFO 2200 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-01-14 16:28:18.739  INFO 2200 --- [RMI TCP Connection(5)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-01-14 16:28:19.038  INFO 2200 --- [RMI TCP Connection(5)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-01-14 16:28:19.039  WARN 2200 --- [RMI TCP Connection(5)-127.0.0.1] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'entityManagerFactory': javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Repeated column in mapping for entity: com.quangnv.uet.entities.orm.PhoneEntity column: foreign_key (should be mapped with insert="false" update="false")
+2021-01-14 16:28:19.041  INFO 2200 --- [RMI TCP Connection(5)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-14 16:28:19.042  INFO 2200 --- [RMI TCP Connection(5)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-01-14 16:28:19.054  INFO 2200 --- [RMI TCP Connection(5)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-01-14 16:28:23.980  INFO 9388 --- [main] c.q.uet.ExamSystemShoppingApplication    : Starting ExamSystemShoppingApplication using Java 1.8.0_241 on LAPTOP-ONLHTM8Q with PID 9388 (C:\Users\ADMIN\git\myLocalRepository\ExamSystemShopping\target\classes started by ADMIN in C:\Users\ADMIN\git\myLocalRepository\ExamSystemShopping)
+2021-01-14 16:28:23.983  INFO 9388 --- [main] c.q.uet.ExamSystemShoppingApplication    : No active profile set, falling back to default profiles: default
+2021-01-14 16:28:24.844  INFO 9388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-01-14 16:28:24.845  INFO 9388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-01-14 16:28:24.872  INFO 9388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 0 JPA repository interfaces.
+2021-01-14 16:28:24.891  INFO 9388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-01-14 16:28:24.893  INFO 9388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-01-14 16:28:24.910  INFO 9388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2021-01-14 16:28:25.583  INFO 9388 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-01-14 16:28:25.592  INFO 9388 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-14 16:28:25.593  INFO 9388 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-01-14 16:28:25.692  INFO 9388 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-14 16:28:25.693  INFO 9388 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1652 ms
+2021-01-14 16:28:25.917  INFO 9388 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-14 16:28:25.976  INFO 9388 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-14 16:28:26.073  INFO 9388 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.23.Final
+2021-01-14 16:28:26.389  INFO 9388 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-01-14 16:28:26.520  INFO 9388 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-01-14 16:28:26.710  INFO 9388 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-01-14 16:28:26.723  INFO 9388 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-01-14 16:28:27.124  WARN 9388 --- [task-1] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.quangnv.uet.entities.pk.ProductColorPK
+2021-01-14 16:28:27.125  WARN 9388 --- [task-1] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.quangnv.uet.entities.pk.ProductColorPK
+2021-01-14 16:28:27.507  INFO 9388 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2021-01-14 16:28:27.511  INFO 9388 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2021-01-14 16:28:27.511  INFO 9388 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2021-01-14 16:28:27.524  INFO 9388 --- [main] c.q.uet.ExamSystemShoppingApplication    : Started ExamSystemShoppingApplication in 4.0 seconds (JVM running for 4.996)
+2021-01-14 16:28:34.244  INFO 9388 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-14 16:28:34.245  INFO 9388 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-01-14 16:28:34.248  INFO 9388 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
