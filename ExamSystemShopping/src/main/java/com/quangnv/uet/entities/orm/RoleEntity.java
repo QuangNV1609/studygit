@@ -44,7 +44,7 @@ public class RoleEntity extends BaseEntity implements Serializable {
 	private String name;
 
 	@ManyToMany(targetEntity = UserEntity.class)
-	@JoinTable(name = "username_role", joinColumns = { @JoinColumn(name = "role_id") }, inverseJoinColumns = {
+	@JoinTable(name = "user_role", joinColumns = { @JoinColumn(name = "role_id") }, inverseJoinColumns = {
 			@JoinColumn(name = "user_id") })
 	private Set<UserEntity> user = new HashSet<UserEntity>();
 

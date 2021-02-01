@@ -67,16 +67,25 @@ public class CartDetail extends BaseEntity implements Serializable {
 	@GenericGenerator(name = "CART_DETAIL_CARTID_GENERATOR", strategy = "foreign", parameters = @org.hibernate.annotations.Parameter(name = "property", value = "cart"))
 	private String cartId;
 
-	@Column(name = "quantity", nullable = true, length = 3)
+	@PrimaryKeyJoinColumn
+	@ManyToOne(targetEntity = ColorEntity.class, fetch = FetchType.LAZY)
+	@JoinColumns(value = {
+			@JoinColumn(name = "color_id", referencedColumnName = "color_id", nullable = false) }, foreignKey = @ForeignKey(name = "FKcart_detai195315"))
+	private ColorEntity color;
+
+	@Column(name = "color_id", nullable = false, insertable = false, updatable = false)
+	@Id
+	@GeneratedValue(generator = "CART_DETAIL_CARTID_GENERATOR")
+	@GenericGenerator(name = "CART_DETAIL_CARTID_GENERATOR", strategy = "foreign", parameters = @org.hibernate.annotations.Parameter(name = "property", value = "color"))
+	private String colorId;
+
+	@Column(name = "quantity", nullable = true)
 	private Integer quantity;
 
-	@Column(name = "price", nullable = true, length = 10)
+	@Column(name = "price", nullable = true)
 	private Float price;
 
 	@Column(name = "status", nullable = true)
 	private Boolean status;
-
-	@Column(name = "color", nullable = true, length = 10)
-	private Integer color;
 
 }

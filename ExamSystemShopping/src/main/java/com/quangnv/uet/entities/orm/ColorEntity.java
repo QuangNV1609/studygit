@@ -6,12 +6,10 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.GenericGenerator;
 
 import com.quangnv.uet.entities.BaseEntity;
 
@@ -35,14 +33,15 @@ public class ColorEntity extends BaseEntity implements Serializable {
 
 	@Column(name = "color_id", nullable = false, length = 10)
 	@Id
-	@GeneratedValue(generator = "COLOR_COLOR_ID_GENERATOR")
-	@GenericGenerator(name = "COLOR_COLOR_ID_GENERATOR", strategy = "native")
 	private String colorId;
 
-	@Column(name = "name", nullable = true, length = 50)
-	private Integer name;
+	@Column(name = "name", nullable = true)
+	private String name;
 
 	@OneToMany(mappedBy = "color", targetEntity = ProductColor.class)
 	private Set<ProductColor> product_color = new HashSet<ProductColor>();
+	
+	@OneToMany(mappedBy = "color", targetEntity = CartDetail.class, fetch = FetchType.LAZY)
+	private Set<CartDetail> cartDetail = new HashSet<CartDetail>();
 
 }

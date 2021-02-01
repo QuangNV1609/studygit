@@ -11,14 +11,15 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Proxy;
-import org.hibernate.annotations.GenericGenerator;
 
 import com.quangnv.uet.entities.BaseEntity;
 import com.quangnv.uet.entities.autocreateid.StringPrefixedSequenceIdGenerator;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -31,6 +32,7 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @ToString
 public class CategoryEntity extends BaseEntity implements Serializable {
 	/**
@@ -51,6 +53,7 @@ public class CategoryEntity extends BaseEntity implements Serializable {
 	private String name;
 
 	@OneToMany(mappedBy = "category", targetEntity = ProductEntity.class)
+	@Builder.Default
 	private Set<ProductEntity> product = new HashSet<ProductEntity>();
 
 }

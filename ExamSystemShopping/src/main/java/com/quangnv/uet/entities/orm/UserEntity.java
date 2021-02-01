@@ -7,17 +7,14 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.Proxy;
 
 import com.quangnv.uet.entities.BaseEntity;
-import com.quangnv.uet.entities.autocreateid.StringPrefixedSequenceIdGenerator;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,8 +23,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@org.hibernate.annotations.Proxy(lazy = false)
-@Table(name = "username")
+@Proxy(lazy = false)
+@Table(name = "user")
 @Data
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
@@ -41,11 +38,6 @@ public class UserEntity extends BaseEntity implements Serializable {
 
 	@Column(name = "user_id", nullable = false, length = 10)
 	@Id
-	@GeneratedValue(generator = "USERNAME_USER_ID_GENERATOR")
-	@GenericGenerator(name = "USERNAME_USER_ID_GENERATOR", strategy = "com.quangnv.uet.entities.autocreateid.StringPrefixedSequenceIdGenerator", parameters = {
-			@Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "50"),
-			@Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "USE"),
-			@Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%04d") })
 	private String userId;
 
 	@Column(name = "username", nullable = true, length = 100)

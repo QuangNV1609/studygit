@@ -66,7 +66,7 @@ public class ProductColor extends BaseEntity implements Serializable {
 	@GenericGenerator(name = "PRODUCT_COLOR_COLORID_GENERATOR", strategy = "foreign", parameters = @org.hibernate.annotations.Parameter(name = "property", value = "color"))
 	private String colorId;
 
-	@Column(name = "quantity", nullable = true, length = 5)
+	@Column(name = "quantity", nullable = true)
 	private Integer quantity;
 
 }

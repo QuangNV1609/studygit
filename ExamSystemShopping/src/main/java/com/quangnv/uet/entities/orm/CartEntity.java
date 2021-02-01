@@ -48,7 +48,7 @@ public class CartEntity extends BaseEntity implements Serializable {
 			@JoinColumn(name = "customer_id", referencedColumnName = "customer_id", nullable = false) }, foreignKey = @ForeignKey(name = "FKcart67206"))
 	private CustomerEntity customer;
 
-	@OneToMany(mappedBy = "cart", targetEntity = CartDetail.class, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "cart", targetEntity = CartDetail.class, fetch = FetchType.LAZY)
 	@Builder.Default
 	private Set<CartDetail> cartDetail = new HashSet<CartDetail>();
 

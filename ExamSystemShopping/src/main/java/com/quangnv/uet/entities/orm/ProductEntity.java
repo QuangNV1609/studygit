@@ -60,11 +60,11 @@ public class ProductEntity extends BaseEntity implements Serializable {
 	@Column(name = "memory", nullable = true, length = 255)
 	private String memory;
 
-	@Column(name = "price", nullable = true, length = 10)
+	@Column(name = "price", nullable = true)
 	private Float price;
 
-	@Column(name = "decription", nullable = true, length = 10)
-	private Integer decription;
+	@Column(name = "decription", nullable = true, length = 255)
+	private String decription;
 
 	@ManyToOne(targetEntity = CategoryEntity.class, fetch = FetchType.LAZY)
 	@JoinColumns(value = {

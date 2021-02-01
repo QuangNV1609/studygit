@@ -1,8 +1,6 @@
 package com.quangnv.uet.entities.orm;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,11 +10,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.Proxy;
 
 import com.quangnv.uet.entities.BaseEntity;
 import com.quangnv.uet.entities.autocreateid.StringPrefixedSequenceIdGenerator;
@@ -28,7 +26,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@org.hibernate.annotations.Proxy(lazy = false)
+@Proxy(lazy = false)
 @Table(name = "customer")
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -51,16 +49,19 @@ public class CustomerEntity extends BaseEntity implements Serializable {
 	private String customerId;
 
 	@Column(name = "name", nullable = true, length = 30)
-	private Integer name;
+	private String name;
 
-	@Column(name = "age", nullable = true, length = 3)
+	@Column(name = "age", nullable = true)
 	private Integer age;
 
 	@Column(name = "address", nullable = true, length = 50)
-	private Integer address;
+	private String address;
 
 	@Column(name = "email", nullable = true, length = 50)
 	private String email;
+
+	@Column(name = "phone", nullable = true, length = 10)
+	private String phone;
 
 	@Column(name = "gender", nullable = true)
 	private Boolean gender;
@@ -69,9 +70,6 @@ public class CustomerEntity extends BaseEntity implements Serializable {
 	@JoinColumns(value = {
 			@JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false) }, foreignKey = @ForeignKey(name = "FKcustomer195968"))
 	private UserEntity user;
-
-	@OneToMany(mappedBy = "foreign_key1", targetEntity = PhoneEntity.class, fetch = FetchType.EAGER)
-	private Set<PhoneEntity> phone = new HashSet<PhoneEntity>();
 
 	@OneToOne(mappedBy = "customer", targetEntity = CartEntity.class, fetch = FetchType.LAZY)
 	private CartEntity cart;

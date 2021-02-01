@@ -23,7 +23,7 @@ import lombok.ToString;
 
 @Entity
 @org.hibernate.annotations.Proxy(lazy = false)
-@Table(name = "order")
+@Table(name = "order_entity")
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Builder
@@ -51,7 +51,7 @@ public class OrderEntity extends BaseEntity implements Serializable {
 	private ShopEntity shop;
 
 	@Column(name = "phone", nullable = true, length = 10)
-	private Integer phone;
+	private String phone;
 
 	@Column(name = "name", nullable = true, length = 30)
 	private String name;
