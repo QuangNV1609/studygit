@@ -6,10 +6,14 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Proxy;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.quangnv.uet.entities.BaseEntity;
 
@@ -19,7 +23,8 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
-@org.hibernate.annotations.Proxy(lazy = false)
+@Proxy(lazy = false)
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "color")
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -38,8 +43,8 @@ public class ColorEntity extends BaseEntity implements Serializable {
 	@Column(name = "name", nullable = true)
 	private String name;
 
-	@OneToMany(mappedBy = "color", targetEntity = ProductColor.class)
-	private Set<ProductColor> product_color = new HashSet<ProductColor>();
+	@OneToMany(mappedBy = "color", targetEntity = ProductColorEntity.class)
+	private Set<ProductColorEntity> product_color = new HashSet<ProductColorEntity>();
 	
 	@OneToMany(mappedBy = "color", targetEntity = CartDetail.class, fetch = FetchType.LAZY)
 	private Set<CartDetail> cartDetail = new HashSet<CartDetail>();

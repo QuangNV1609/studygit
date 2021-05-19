@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
@@ -16,8 +17,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.Proxy;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.quangnv.uet.entities.BaseEntity;
 import com.quangnv.uet.entities.autocreateid.StringPrefixedSequenceIdGenerator;
@@ -28,9 +31,10 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+@EntityListeners(AuditingEntityListener.class)
 @Entity
-@org.hibernate.annotations.Proxy(lazy = false)
-@Table(name = "product")
+@Proxy(lazy = false)
+@Table(name = "product_entity")
 @Data
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
@@ -71,8 +75,8 @@ public class ProductEntity extends BaseEntity implements Serializable {
 			@JoinColumn(name = "category_id", referencedColumnName = "category_id", nullable = false) }, foreignKey = @ForeignKey(name = "FKproduct370273"))
 	private CategoryEntity category;
 
-	@OneToMany(mappedBy = "product", targetEntity = ProductColor.class)
-	private Set<ProductColor> product_color = new HashSet<ProductColor>();
+	@OneToMany(mappedBy = "product", targetEntity = ProductColorEntity.class)
+	private Set<ProductColorEntity> product_color = new HashSet<ProductColorEntity>();
 
 	@OneToMany(mappedBy = "product", targetEntity = ImageEntity.class)
 	private Set<ImageEntity> image = new HashSet<ImageEntity>();

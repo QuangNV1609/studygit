@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
@@ -16,6 +17,8 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Proxy;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.quangnv.uet.entities.BaseEntity;
 import com.quangnv.uet.entities.pk.CartDetailPK;
@@ -28,7 +31,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@org.hibernate.annotations.Proxy(lazy = false)
+@Proxy(lazy = false)
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "cart_detail")
 @IdClass(CartDetailPK.class)
 @Data

@@ -4,17 +4,18 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Proxy;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.quangnv.uet.entities.BaseEntity;
 import com.quangnv.uet.entities.autocreateid.StringPrefixedSequenceIdGenerator;
@@ -26,6 +27,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Proxy(lazy = false)
 @Table(name = "customer")
 @Data
@@ -67,11 +69,12 @@ public class CustomerEntity extends BaseEntity implements Serializable {
 	private Boolean gender;
 
 	@OneToOne(optional = false, targetEntity = UserEntity.class, fetch = FetchType.LAZY)
-	@JoinColumns(value = {
-			@JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false) }, foreignKey = @ForeignKey(name = "FKcustomer195968"))
 	private UserEntity user;
 
 	@OneToOne(mappedBy = "customer", targetEntity = CartEntity.class, fetch = FetchType.LAZY)
 	private CartEntity cart;
+
+	@OneToOne(mappedBy = "customer", targetEntity = ImageEntity.class, fetch = FetchType.LAZY)
+	private ImageEntity image;
 
 }

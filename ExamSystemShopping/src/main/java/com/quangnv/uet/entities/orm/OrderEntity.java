@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.Id;
@@ -11,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Proxy;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.quangnv.uet.entities.BaseEntity;
 
@@ -22,7 +26,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@org.hibernate.annotations.Proxy(lazy = false)
+@EntityListeners(AuditingEntityListener.class)
+@Proxy(lazy = false)
 @Table(name = "order_entity")
 @Data
 @EqualsAndHashCode(callSuper = false)

@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -14,6 +15,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Proxy;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.quangnv.uet.entities.BaseEntity;
 import com.quangnv.uet.entities.autocreateid.StringPrefixedSequenceIdGenerator;
@@ -27,6 +29,7 @@ import lombok.ToString;
 
 @Entity
 @Proxy(lazy = false)
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "category")
 @Data
 @EqualsAndHashCode(callSuper = false)

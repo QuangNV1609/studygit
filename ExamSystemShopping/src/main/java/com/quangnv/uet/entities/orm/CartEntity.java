@@ -8,6 +8,8 @@ import javax.persistence.*;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.Proxy;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.quangnv.uet.entities.BaseEntity;
 import com.quangnv.uet.entities.autocreateid.StringPrefixedSequenceIdGenerator;
@@ -20,8 +22,9 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@org.hibernate.annotations.Proxy(lazy = false)
+@Proxy(lazy = false)
 @Table(name = "cart")
+@EntityListeners(AuditingEntityListener.class)
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Builder

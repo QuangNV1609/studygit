@@ -1,5 +1,7 @@
 package com.quangnv.uet.dto.extend;
 
+import java.util.Set;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -31,6 +33,8 @@ public class ProductDto extends BaseDto {
 
 	private String decription;
 
-	@NotBlank
 	private String categoryName;
+
+	private Set<ProductColorDto> product_colors;
+
 }
